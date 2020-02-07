@@ -13,6 +13,7 @@ WORKDIR /home/quser/
 RUN git clone https://github.com/frederic/qemu-exynos-bootrom.git
 
 #Build Qemu
+#To speed up the compile with multiple cores add -j# where # is the number of cores on your computer ex. on a 4 core pc -j4.
 RUN cd qemu-exynos-bootrom && mkdir build && cd build && ../configure --enable-curses && make -j
 
 CMD ["/bin/bash"]
